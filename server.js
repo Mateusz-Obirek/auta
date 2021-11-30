@@ -16,18 +16,21 @@ app.engine('hbs', hbs({ defaultLayout: 'main.hbs' }))
 app.set('view engine', 'hbs');
 app.use(express.static('static'))
 
+
 let context = {}
+
+coll1.find({}, (err, docs) => {
+    console.log(docs)
+    context = { docsy: docs}
+})
 
 app.listen(PORT, () => {
     console.log(`listening at port: ${PORT}`)
 })
 
 app.get("/", function (req, res) {
-    coll1.find({}, (err, docs) => {
-        console.log(docs)
-        context = { docsy: docs}
-        res.render('index.hbs', context)
-    })
+    
+    res.render('index.hbs', context)
 })
 
 app.get('/handle', (req, res) => {
