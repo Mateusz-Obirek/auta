@@ -1,0 +1,60 @@
+<section>
+    <form action="/handle" method="GET">
+        <table>
+            <tr>
+                <td>ubezpieczony</td>
+                <td><input type="checkbox" name="ch1"></td>
+            </tr>
+            <tr>
+                <td>benzyna</td>
+                <td><input type="checkbox" name="ch2"></td>
+            </tr>
+            <tr>
+                <td>uszkodzony</td>
+                <td><input type="checkbox" name="ch3"></td>
+            </tr>
+            <tr>
+                <td>napęd 4x4</td>
+                <td><input type="checkbox" name="ch4"></td>
+            </tr>
+        </table>
+        <button class="blue" type="submit">DODAJ DO BAZY</button>
+    </form>
+    <form>
+        <table>
+            <thead>
+                <td></td>
+                <td>ubezpieczony</td>
+                <td>benzyna</td>
+                <td>uszkodzony</td>
+                <td>napęd 4x4</td>
+                <td></td>
+                <td></td>
+            </thead>
+            <tbody>
+                {{#each docsy}}
+                <tr>{{#if edit}}
+                    <form method="get">
+                    <td>{{@index}}</td>
+                    <td><select class="blue" name="a"><option value="TAK">TAK</option><option value="NIE">NIE</option><option value="BRAKDANYCH">BRAKDANYCH</option></select></td>
+                    <td><select class="blue" name="b"><option value="TAK">TAK</option><option value="NIE">NIE</option><option value="BRAKDANYCH">BRAKDANYCH</option></select></td>
+                    <td><select class="blue" name="c"><option value="TAK">TAK</option><option value="NIE">NIE</option><option value="BRAKDANYCH">BRAKDANYCH</option></select></td>
+                    <td><select class="blue" name="d"><option value="TAK">TAK</option><option value="NIE">NIE</option><option value="BRAKDANYCH">BRAKDANYCH</option></select></td>
+                    <td><button class="blue" class="red" type='submit' value={{_id}} name='s' formaction="/update" >UPDATE</button></td>
+                    <td><button class="blue" class="blue" type='submit' value={{_id}} name='s' formaction="/cancel">CANCEL</button></td>
+                    </form>
+                    {{else}}
+                    <td>{{@index}}</td>
+                    <td>{{a}}</td>
+                    <td>{{b}}</td>
+                    <td>{{c}}</td>
+                    <td>{{d}}</td>
+                    <td><button class="red" type='submit' value={{_id}} name='s' formaction="/delete" onclick="return confirm('czy usunąć?')" >DELETE</button></td>
+                    <td><button class="blue" type='submit' value={{_id}} name='s' formaction="/edit">EDIT</button></td>
+                    {{/if}}
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </form>
+</section>

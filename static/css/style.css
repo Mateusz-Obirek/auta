@@ -1,0 +1,32 @@
+section{
+    display: flex;
+}
+
+table{
+    border: 2px solid black;
+}
+
+thead td{
+    width: 70px;
+    border: 1px solid black;
+    text-align: center;
+    color: blue;
+}
+
+tbody tr td{
+    width: 70px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.red{
+    color: red;
+    border: red 1px solid;
+    border-radius: 30px;
+}
+
+.blue{
+    color: blue;
+    border: blue 1px solid;
+    border-radius: 30px;
+}
