@@ -42,11 +42,10 @@ app.get('/handle', (req, res) => {
 
     coll1.insert(obj, (err, docs) => {
         coll1.find({}, (err, docs) => {
-            console.log(docs)
             context = { docsy: docs}
-            res.render('index.hbs', context)
-        })
+            res.redirect('/')
     })
+})
 })
 
 app.get("/delete", function (req, res) {
@@ -54,7 +53,7 @@ app.get("/delete", function (req, res) {
         coll1.find({}, (err, docs) => {
             console.log(docs)
             context = { docsy: docs}
-            res.render('index.hbs', context)
+            res.redirect('/')
         })
     })
 })
@@ -68,7 +67,7 @@ app.get("/edit", function (req, res) {
             }
         }
         context = { docsy: docs}
-        res.render('index.hbs', context)
+        res.redirect('/')
     })
 })
 
@@ -81,7 +80,7 @@ app.get("/cancel", function (req, res) {
             }
         }
         context = { docsy: docs}
-        res.render('index.hbs', context)
+        res.redirect('/')
     })
 })
 
@@ -90,7 +89,7 @@ app.get("/update", function (req, res) {
     coll1.update({ _id: req.query.s }, { $set: {a:req.query.a, b:req.query.b, c:req.query.c, d:req.query.d, edit:false} }, {}, function (err, numUpdated) {
         coll1.find({}, (err, docs) => {
             context = { docsy: docs}
-            res.render('index.hbs', context)
+            res.redirect('/')
         })
-     });
+     })
 })
