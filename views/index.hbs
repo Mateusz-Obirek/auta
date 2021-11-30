@@ -36,10 +36,10 @@
                 <tr>{{#if edit}}
                     <form method="get">
                     <td>{{@index}}</td>
-                    <td><select class="blue" name="a"><option value="TAK">TAK</option><option value="NIE">NIE</option><option value="BRAKDANYCH">BRAKDANYCH</option></select></td>
-                    <td><select class="blue" name="b"><option value="TAK">TAK</option><option value="NIE">NIE</option><option value="BRAKDANYCH">BRAKDANYCH</option></select></td>
-                    <td><select class="blue" name="c"><option value="TAK">TAK</option><option value="NIE">NIE</option><option value="BRAKDANYCH">BRAKDANYCH</option></select></td>
-                    <td><select class="blue" name="d"><option value="TAK">TAK</option><option value="NIE">NIE</option><option value="BRAKDANYCH">BRAKDANYCH</option></select></td>
+                    <td><select class="blue" name="a"><option {{#if (equal a "TAK") }} selected {{/if}} value="TAK">TAK</option><option {{#if (equal a "NIE") }} selected {{/if}} value="NIE">NIE</option><option {{#if (equal a "BRAKDANYCH") }} selected {{/if}} value="BRAKDANYCH">BRAKDANYCH</option></select></td>
+                    <td><select class="blue" name="b"><option {{#if (equal b "TAK") }} selected {{/if}} value="TAK">TAK</option><option {{#if (equal b "NIE") }} selected {{/if}} value="NIE">NIE</option><option {{#if (equal b "BRAKDANYCH") }} selected {{/if}} value="BRAKDANYCH">BRAKDANYCH</option></select></td>
+                    <td><select class="blue" name="c"><option {{#if (equal c "TAK") }} selected {{/if}} value="TAK">TAK</option><option {{#if (equal c "NIE") }} selected {{/if}} value="NIE">NIE</option><option {{#if (equal c "BRAKDANYCH") }} selected {{/if}} value="BRAKDANYCH">BRAKDANYCH</option></select></td>
+                    <td><select class="blue" name="d"><option {{#if (equal d "TAK") }} selected {{/if}} value="TAK">TAK</option><option {{#if (equal d "NIE") }} selected {{/if}} value="NIE">NIE</option><option {{#if (equal d "BRAKDANYCH") }} selected {{/if}} value="BRAKDANYCH">BRAKDANYCH</option></select></td>
                     <td><button class="blue" class="red" type='submit' value={{_id}} name='s' formaction="/update" >UPDATE</button></td>
                     <td><button class="blue" class="blue" type='submit' value={{_id}} name='s' formaction="/cancel">CANCEL</button></td>
                     </form>

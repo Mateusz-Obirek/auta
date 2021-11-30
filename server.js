@@ -12,7 +12,14 @@ const coll1 = new Datastore({
 })
 
 app.set('views', path.join(__dirname, 'views'))
-app.engine('hbs', hbs({ defaultLayout: 'main.hbs' }))
+app.engine('hbs', hbs.create({
+    defaultLayout: 'main.hbs' ,
+    helpers: {         
+        equal: function(a, b){
+            return a==b
+        }
+    }
+}).engine)
 app.set('view engine', 'hbs');
 app.use(express.static('static'))
 
